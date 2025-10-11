@@ -71,7 +71,7 @@ def main():
     @st.cache_data(show_spinner="Идет расчет, немного подождите...")
     def process_full_data(uploaded_file, inj_radius):
         if '.xls' in uploaded_file.name or '.xlsx' in uploaded_file.name: 
-            data = pd.read_excel(uploaded_file).drop(columns='Unnamed: 0')
+            data = pd.read_excel(uploaded_file) #.drop(columns='Unnamed: 0')
         else:
             st.error('Неправильный формат данных, подгрузите данные в формате .xls, .xlsx')
             return None, None
